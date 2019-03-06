@@ -1,22 +1,17 @@
 language: java
 jdk: oraclejdk8
-
 env:
   global:
-  - secure: "4548d0030a7e567fbfe7ac023735c7c502ec85e7"
-
+  - secure: Wg1lNs5xre92jdKtS55VPgPuN50PXLasBZ/Gg8B400CO2sQyeD2vnmmR29fgtfNKKB01vem/hs4Mae5EMlfPaORB36wm9bxYBHn5tRUjTHEcDE11ZwGI/ImTwQuF34+v1wHvUJA/DHaUt5GKDGMMgbtyoDRwPogR1uwlfuw2MIbUwl1967hTGPtrJmOQ3z6BTqlaoWLO8vn3EPWCpx0G6iU5+IKWnNh0R+DuIMRS5fmSBkWXMpZX7hcs4YrrR9KraTejosELhSAhoBtk2Dnn5HFRl8gMOt5S0dvmuuF4iRCvJkx4XjJIEyY3uCPuVobXnb0V96hXY2ydkk9YAT2OPF/OE9CMNufGYAPBkQA05qW9rA4V5YExk4VJExQFRCZZauYXo0CxlYBUAXU8uvuKFZVp2JDMAZl/fFVtgC6Os47VwH+k8z48drVwc40pe4pu9qjylhHt7HCUtAEf1fhEnjsQzlidA2JFvVhpCmRODwVdnQA86xnS4IthQ9XxUN/htS/tEU4SGSbL2ls3+dUy+iWQeVrYRP/xBtOzfSf/Frt8VMB8ovg7B3icBNz9OKNTgLTC1NnNJyn8rC+fg9zw/cRHe+EA0Gw+C6sKQs7o1feANv1v9Wo5OshEK3bK1mKhDJiHoCdbUKRRxX4qqcy4XYK3MTE2S/Tuc7Fp6wJEO8c=
 addons:
   sonarcloud:
     token:
-      organization: "fhera-github"
-      secure: $SONAR_TOKEN
- 
+      organization: fhera-github
+      secure: "$SONAR_TOKEN"
 script:
- - ./mvnw clean install -B
- - ./mvnw clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar 
-
+- "./mvnw clean install -B"
+- "./mvnw clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar"
 services:
- - mysql
-
+- mysql
 before_install:
- - mysql -e 'CREATE DATABASE db_springboot;' 
+- mysql -e 'CREATE DATABASE db_springboot;'
