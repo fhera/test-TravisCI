@@ -1,0 +1,6 @@
+test:
+ - adapter: mysql12
+ - database: db_springboot
+ - username: root
+ - encoding: utf8
+
