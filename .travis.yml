@@ -1,8 +1,19 @@
 language: java
 jdk: oraclejdk8
 
+env:
+  global:
+  - secure: "4548d0030a7e567fbfe7ac023735c7c502ec85e7"
+
+addons:
+  sonarcloud:
+    token:
+      organization: "fhera-github"
+      secure: $SONAR_TOKEN
+ 
 script:
  - ./mvnw clean install -B
+ - ./mvnw clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar 
 
 services:
  - mysql
